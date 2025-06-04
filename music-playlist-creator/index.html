@@ -3,25 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Music Playlist Explorer</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/0061b83e37.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <!-- Your header content here -->
+        <h2>Music Playlist Explorer</h2>
     </header>
 
-    <main> 
-        <!-- Your main content here -->
+    <main>
+        <div class="playlist-cards">
+            <template>
+                <div class="playlist">
+                    <img src="" class="playlist-cover">
+                    <h3 class="playlist-title">Playlist Title</h3>
+                    <p class="playlist-creator">Creator name</p>
+                    <p class="like-count">0</p>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+            </template>
+        </div>
+
+        <div class="modal">
+            <template>
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <img class="playlist-image" src="">
+                    <h3 class="playlist-title">Playlist Title</h3>
+                    <p class="playlist-creator">Creator name</p>
+
+                    <div class="songs">
+                        <div class="song">
+                            <img src="" class="song-cover">
+                            <h4 class="song-title">Song Title</h4>
+                            <p class="song-artist">Artist name</p>
+                        </div>
+
+                    </div>
+                </div>
+            </template>
+        </div>
     </main>
 
     <footer>
         <!-- Your footer content here -->
+         <h2>Made by Felix</h2>
     </footer>
-    <script src="data/data.js"></script>
+    <script src="../data/data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

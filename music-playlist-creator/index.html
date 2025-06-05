@@ -6,12 +6,13 @@
 
     <title>Music Playlist Explorer</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/0061b83e37.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h2>Music Playlist Explorer</h2>
+        <!-- Your header content here -->
+        <h1>Music Playlist Explorer</h1>
     </header>
 
     <main>
@@ -22,35 +23,33 @@
                     <h3 class="playlist-title">Playlist Title</h3>
                     <p class="playlist-creator">Creator name</p>
                     <p class="like-count">0</p>
-                    <i class="fa-regular fa-heart"></i>
+                    <div class="card-actions">
+                        <i class="fa-regular fa-heart" id="like"></i>
+                        <i class="fa-solid fa-trash-can" id="delete"></i>
+                    </div>
                 </div>
             </template>
         </div>
 
-        <div class="modal">
-            <template>
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <img class="playlist-image" src="">
-                    <h3 class="playlist-title">Playlist Title</h3>
-                    <p class="playlist-creator">Creator name</p>
-
-                    <div class="songs">
-                        <div class="song">
-                            <img src="" class="song-cover">
-                            <h4 class="song-title">Song Title</h4>
-                            <p class="song-artist">Artist name</p>
-                        </div>
-
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img id="header-image" src="" width="120px" height="120px">
+                    <div class="modal-text">
+                        <h3 id="playlist-title">Playlist Title</h3>
+                        <p id="creator-name">Creator name</p>
                     </div>
+                    <span id="close" class="close">&times;</span>
                 </div>
-            </template>
+                <button id="shuffle">Shuffle</button>
+                <div class="songs-container"></div>
+            </div>
         </div>
     </main>
 
     <footer>
         <!-- Your footer content here -->
-         <h2>Made by Felix</h2>
+         <h2>&copy;Meta Platforms, Inc.</h2>
     </footer>
     <script src="../data/data.js"></script>
     <script src="script.js"></script>

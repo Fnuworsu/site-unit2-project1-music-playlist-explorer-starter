@@ -33,17 +33,24 @@ const openModal = (playlists, playlistId) => {
     // Find the playlist by ID instead of using index
     let playlist = playlists.find(p => p.playlistID === playlistId);
 
-    if (!playlist) {
-        console.error("Playlist not found with ID:", playlistId);
-        return;
-    }
-
     document.getElementById("header-image").src = playlist.playlist_art
     document.getElementById("playlist-title").innerText = playlist.playlist_name
     document.getElementById("creator-name").innerText = playlist.playlist_creator
 
     modal.style.display = "block"
     renderSongs(playlist)
+
+    let shuffleButton = document.getElementById("shuffle")
+
+    // Remove any existing event listeners by cloning and replacing the button
+    const newShuffleButton = shuffleButton.cloneNode(true)
+    shuffleButton.parentNode.replaceChild(newShuffleButton, shuffleButton)
+    shuffleButton = newShuffleButton
+
+    // Add new event listener
+    shuffleButton.addEventListener("click", () => {
+        shuffleSongs(playlist)
+    })
 }
 
 span.onclick = () => {
@@ -82,9 +89,11 @@ const renderCards = () => {
                 if (this.classList.contains('fa-regular')) {
                     this.classList.remove('fa-regular');
                     this.classList.add('fa-solid');
+                    this.classList.add('liked'); // Add class for red color
                     playlist.likeCount++;
                 } else {
                     this.classList.remove('fa-solid');
+                    this.classList.remove('liked'); // Remove class for red color
                     this.classList.add('fa-regular');
                     playlist.likeCount--;
                 }
@@ -122,7 +131,6 @@ const renderCards = () => {
 
         // Add event listener to the playlist div
         const playlistDiv = cardElement.querySelector('.playlist')
-        // Store the playlist ID as a data attribute
         playlistDiv.dataset.playlistId = playlist.playlistID
 
         playlistDiv.addEventListener("click", function() {
@@ -134,4 +142,33 @@ const renderCards = () => {
         i++
     })
 }
+
+// shuffle songs
+const shuffleSongs = (playlist) => {
+    for (let i = playlist.songs.length - 1; i >= 0; i--) {
+        const randIdx = Math.floor(Math.random() * (i + 1))
+        const temp = playlist.songs[i]
+        playlist.songs[i] = playlist.songs[randIdx]
+        playlist.songs[randIdx] = temp
+    }
+    renderSongs(playlist)
+}
+
+const searchBar = document.getElementById("search-space")
+searchBar.addEventListener("input", (e) => {
+    const searchTerm = e.target.value.toLowerCase()
+    const allPlaylists = document.querySelectorAll(".playlist")
+
+    allPlaylists.forEach(playlist => {
+        const playlistName = playlist.querySelector(".playlist-title").textContent.toLowerCase()
+        const playlistAuthor = playlist.querySelector(".playlist-creator").textContent.toLowerCase()
+
+        if (playlistName.includes(searchTerm) || playlistAuthor.includes(searchTerm)) {
+            playlist.style.display = "block"
+        } else {
+            playlist.style.display = "none"
+        }
+    })
+})
+
 renderCards()

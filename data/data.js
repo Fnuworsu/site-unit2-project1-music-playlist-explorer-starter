@@ -4,7 +4,7 @@ let data = { "playlists": [
       "playlist_name": "Late Night Drive",
       "playlist_creator": "Melody Maven",
       "playlist_art": "https://picsum.photos/id/36/200",
-      "likeCount": 0,
+      "likeCount": 20,
       "songs": [
         {
           "songID": 0,
@@ -53,7 +53,7 @@ let data = { "playlists": [
       "playlist_name": "That Summer '16 Feeling",
       "playlist_creator": "Groove Guardian",
       "playlist_art": "https://picsum.photos/id/117/200",
-      "likeCount": 0,
+      "likeCount": 15,
       "songs": [
         {
           "songID": 5,
@@ -102,7 +102,7 @@ let data = { "playlists": [
       "playlist_name": "Workout Beats",
       "playlist_creator": "Harmony Herald",
       "playlist_art": "https://picsum.photos/id/1077/200",
-      "likeCount": 0,
+      "likeCount": 8,
       "songs": [
         {
           "songID": 10,
@@ -151,7 +151,7 @@ let data = { "playlists": [
       "playlist_name": "Road Trip Anthems",
       "playlist_creator": "Playlist Pioneer",
       "playlist_art": "https://picsum.photos/id/314/200",
-      "likeCount": 0,
+      "likeCount": 17,
       "songs": [
         {
           "songID": 15,
@@ -200,7 +200,7 @@ let data = { "playlists": [
       "playlist_name": "Boss Chick Energy",
       "playlist_creator": "Tempo Tactician",
       "playlist_art": "https://picsum.photos/id/449/200",
-      "likeCount": 0,
+      "likeCount": 18,
       "songs": [
         {
           "songID": 20,
@@ -249,7 +249,7 @@ let data = { "playlists": [
       "playlist_name": "Rainy Nights",
       "playlist_creator": "Sonic Sage",
       "playlist_art": "https://picsum.photos/id/115/200",
-      "likeCount": 0,
+      "likeCount": 10,
       "songs": [
         {
           "songID": 25,
@@ -298,7 +298,7 @@ let data = { "playlists": [
       "playlist_name": "90's R&B",
       "playlist_creator": "Vinyl Virtuoso",
       "playlist_art": "https://picsum.photos/id/815/200",
-      "likeCount": 0,
+      "likeCount": 4,
       "songs": [
         {
           "songID": 30,

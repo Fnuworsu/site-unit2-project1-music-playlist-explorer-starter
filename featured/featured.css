@@ -6,7 +6,7 @@ body {
 }
 
 header, footer {
-    background-color: #94e6f2;
+    background-color: #d0d8da;
     margin-top: 20px;
     margin-bottom: 20px;
     padding-top: 5px;
@@ -19,103 +19,21 @@ header, footer {
     flex-direction: row;
     gap: 30px;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content:baseline;
 }
 
 .playlist {
-    border: 2px solid #94e6f2;
+    border: 2px solid white;
     border-radius: 10px;
     text-align: center;
     position: relative;
 }
 
-.card-actions {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 10px 0;
-}
-
-.fa-heart, .fa-trash-can {
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: transform 0.2s, color 0.2s;
-}
-
-.fa-heart:hover {
-    color: red;
-    transform: scale(1.2);
-}
-
-.fa-heart.liked {
-    color: red;
-}
-
-.fa-trash-can {
-    color: #888;
-}
-
-.fa-trash-can:hover {
-    color: #ff4d4d;
-    transform: scale(1.2);
-}
-
 .playlist img {
-    width: 250px;
+    width: 600px;
     border: 0px solid #94e6f2;
     border-radius: 10px;
 }
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.7);
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 10vh auto;
-    padding: 25px;
-    border: none;
-    width: 80%;
-    max-width: 700px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    animation: modalFloat 0.3s ease-out;
-    transform: translateY(0);
-    max-height: 80vh;
-    overflow-y: auto;
-    position: relative;
-}
-
-@keyframes modalFloat {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.modal-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    position: relative;
-}
-
-.modal-text {
-    margin-left: 20px;
-}
-
 .songs-container {
     margin-top: 20px;
 }
@@ -203,4 +121,3 @@ header, footer {
     text-decoration: none;
     cursor: pointer;
 }
-

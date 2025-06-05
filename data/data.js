@@ -1,33 +1,34 @@
 let data = { "playlists": [
     {
       "playlistID": 0,
-      "playlist_name": "Late Night Drive",
-      "playlist_creator": "Melody Maven",
-      "playlist_art": "https://picsum.photos/id/36/200",
+      "playlist_name": "Afrobeats By Black Sheriff",
+      "playlist_creator": "Black Sheriff",
+      "playlist_art": "https://upload.wikimedia.org/wikipedia/en/5/53/The_Villain_I_Never_Was.jpg",
       "likeCount": 20,
       "songs": [
         {
           "songID": 0,
-          "title": "Nightcall",
-          "artist": "Kavinsky",
-          "album": "Nightcall",
-          "cover_art": "https://picsum.photos/id/43/200",
+          "title": "Oil in My Head",
+          "artist": "Black Sheriff",
+          "album": "The Villain I Never Was",
+          "cover_art": "https://thenativemag.com/wp-content/uploads/2022/10/Frame-316-min.jpg",
           "duration": "4:18"
         },
+        
         {
           "songID": 1,
-          "title": "Drive",
-          "artist": "The Cars",
-          "album": "Heartbeat City",
-          "cover_art": "https://picsum.photos/id/45/200",
+          "title": "Believe",
+          "artist": "King Promise",
+          "album": "True To self",
+          "cover_art": "https://upload.wikimedia.org/wikipedia/en/6/64/True_to_Self_%28King_Promise_album%29.jpg",
           "duration": "3:55"
         },
         {
           "songID": 2,
-          "title": "Cruisin'",
-          "artist": "Smokey Robinson",
-          "album": "One Heartbeat",
-          "cover_art": "https://picsum.photos/id/88/200",
+          "title": "Continental'",
+          "artist": "Shallipopi",
+          "album": "True To self",
+          "cover_art": "https://cdn.prod.website-files.com/5f3ac2902e939b8491efdded/667b192a21c3209c9852610f_IMG_7328.JPG",
           "duration": "4:30"
         },
         {

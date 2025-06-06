@@ -230,6 +230,45 @@ sortOptions.addEventListener("change", (event) => {
     renderCards()
 })
 
+// add/edit Playlist Feature
+const openAddPlaylistForm = () => {
+    isEditMode = false;
+    document.getElementById("form-title").innerText = "Add New Playlist";
+    document.getElementById("playlist-id").value = "";
+    playlistForm.reset();
+
+    const songsList = document.getElementById("songs-list");
+    songsList.innerHTML = `
+        <div class="song-input">
+            <div class="form-group">
+                <label for="song-name-0">Song Name:</label>
+                <input type="text" class="song-name" id="song-name-0" required>
+            </div>
+            <div class="form-group">
+                <label for="song-artist-0">Artist:</label>
+                <input type="text" class="song-artist" id="song-artist-0" required>
+            </div>
+            <div class="form-group">
+                <label for="song-album-0">Album:</label>
+                <input type="text" class="song-album" id="song-album-0" required>
+            </div>
+            <div class="form-group">
+                <label for="song-cover-0">Cover URL:</label>
+                <input type="text" class="song-cover" id="song-cover-0" required>
+            </div>
+            <div class="form-group">
+                <label for="song-duration-0">Duration:</label>
+                <input type="text" class="song-duration" id="song-duration-0" placeholder="e.g. 3:45" required>
+            </div>
+        </div>
+    `;
+    songCounter = 1;
+
+    playlistFormModal.style.display = "block";
+}
+
+addPlaylistBtn.addEventListener("click", openAddPlaylistForm);
+
 
 document.addEventListener('DOMContentLoaded', function() {
     renderCards();

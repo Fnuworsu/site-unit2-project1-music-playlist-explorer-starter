@@ -58,82 +58,93 @@ span.onclick = () => {
 
 // render playlist cards
 const renderCards = () => {
-    let cardTemplate = document.getElementsByTagName("template")[0]
     let cardContainer = document.getElementsByClassName("playlist-cards")[0]
-    let i = 0
+    cardContainer.innerHTML = ''
+
+    if (!playlistData || playlistData.length === 0) {
+        return
+    }
 
     playlistData.forEach(playlist => {
-        let cardElement = cardTemplate.content.cloneNode(true)
-
-        const coverImg = cardElement.querySelector('.playlist-cover')
-        if (coverImg) {
-            coverImg.src = playlist.playlist_art
-        }
-
-        cardElement.querySelector('.playlist-title').innerText = playlist.playlist_name
-        cardElement.querySelector('.playlist-creator').innerText = playlist.playlist_creator
-        cardElement.querySelector('.like-count').innerText = playlist.likeCount
-
-        // uninque like-id per card rendered
-        const likeIcon = cardElement.querySelector('#like');
-        if (likeIcon) {
-            likeIcon.id = `like-${playlist.playlistID}`;
-
-            likeIcon.addEventListener('click', function(event) {
-                // Prevent triggering the playlist click event
-                event.stopPropagation();
-
-                if (this.classList.contains('fa-regular')) {
-                    this.classList.remove('fa-regular');
-                    this.classList.add('fa-solid');
-                    this.classList.add('liked');
-                    playlist.likeCount++;
-                } else {
-                    this.classList.remove('fa-solid');
-                    this.classList.remove('liked');
-                    this.classList.add('fa-regular');
-                    playlist.likeCount--;
-                }
-
-                // update like count
-                const likeCountElement = this.parentElement.parentElement.querySelector('.like-count');
-                if (likeCountElement) {
-                    likeCountElement.innerText = playlist.likeCount;
-                }
-            });
-        }
-
-        // unique delete id per card rendered
-        const deleteIcon = cardElement.querySelector('#delete');
-        if (deleteIcon) {
-            deleteIcon.id = `delete-${playlist.playlistID}`;
-
-            deleteIcon.addEventListener('click', function(event) {
-                event.stopPropagation();
-
-                const index = playlistData.findIndex(p => p.playlistID === playlist.playlistID);
-                if (index !== -1) {
-                    playlistData.splice(index, 1);
-                }
-
-                const playlistCard = this.closest('.playlist');
-                if (playlistCard) {
-                    playlistCard.remove();
-                }
-            });
-        }
-
-        const playlistDiv = cardElement.querySelector('.playlist')
+        const playlistDiv = document.createElement('div')
+        playlistDiv.className = 'playlist'
         playlistDiv.dataset.playlistId = playlist.playlistID
 
-        playlistDiv.addEventListener("click", function() {
-            const playlistId = parseInt(this.dataset.playlistId)
-            openModal(playlistData, playlistId)
-        })
+        const coverImg = document.createElement('img');
+        coverImg.className = 'playlist-cover';
+        coverImg.src = playlist.playlist_art;
+        playlistDiv.appendChild(coverImg);
 
-        cardContainer.appendChild(cardElement)
-        i++
-    })
+        const titleElement = document.createElement('h3');
+        titleElement.className = 'playlist-title';
+        titleElement.innerText = playlist.playlist_name;
+        playlistDiv.appendChild(titleElement);
+
+        const creatorElement = document.createElement('p');
+        creatorElement.className = 'playlist-creator';
+        creatorElement.innerText = playlist.playlist_creator;
+        playlistDiv.appendChild(creatorElement);
+
+        const likeCountElement = document.createElement('p');
+        likeCountElement.className = 'like-count';
+        likeCountElement.innerText = playlist.likeCount;
+        playlistDiv.appendChild(likeCountElement);
+
+        const cardActionsDiv = document.createElement('div');
+        cardActionsDiv.className = 'card-actions';
+
+        const likeIcon = document.createElement('i');
+        likeIcon.className = 'fa-regular fa-heart';
+        likeIcon.id = `like-${playlist.playlistID}`;
+
+        likeIcon.addEventListener('click', function(event) {
+            // Prevent triggering the playlist click event
+            event.stopPropagation();
+
+            if (this.classList.contains('fa-regular')) {
+                this.classList.remove('fa-regular');
+                this.classList.add('fa-solid');
+                this.classList.add('liked');
+                playlist.likeCount++;
+            } else {
+                this.classList.remove('fa-solid');
+                this.classList.remove('liked');
+                this.classList.add('fa-regular');
+                playlist.likeCount--;
+            }
+
+            likeCountElement.innerText = playlist.likeCount;
+        });
+
+        cardActionsDiv.appendChild(likeIcon);
+
+        // delete feature
+        const deleteIcon = document.createElement('i');
+        deleteIcon.className = 'fa-solid fa-trash-can';
+        deleteIcon.id = `delete-${playlist.playlistID}`;
+
+        deleteIcon.addEventListener('click', function(event) {
+            event.stopPropagation();
+
+            const index = playlistData.findIndex(p => p.playlistID === playlist.playlistID);
+            if (index !== -1) {
+                playlistData.splice(index, 1);
+            }
+
+            playlistDiv.remove();
+        });
+
+        cardActionsDiv.appendChild(deleteIcon);
+        playlistDiv.appendChild(cardActionsDiv);
+
+        playlistDiv.addEventListener("click", function() {
+            const playlistId = parseInt(this.dataset.playlistId);
+            openModal(playlistData, playlistId);
+        });
+
+        // Add the playlist card to the container
+        cardContainer.appendChild(playlistDiv);
+    });
 }
 
 // shuffle songs
@@ -165,4 +176,30 @@ searchBar.addEventListener("input", (e) => {
     })
 })
 
-renderCards()
+// sort feature
+const sortPlaylists = (sortBy) => {
+    if (sortBy == "name") playlistData.sort((a,b) => a.playlist_name.localeCompare(b.playlist_name))
+    else if (sortBy == "likes") playlistData.sort((a,b) => b.likeCount - a.likeCount)
+    else playlistData.sort((a,b) => {
+        if (!a.dateAdded && !b.dateAdded) return 0;
+        if (!a.dateAdded) return 1;
+        if (!b.dateAdded) return -1;
+        return new Date(b.dateAdded) - new Date(a.dateAdded);
+    })
+}
+
+const sortOptions = document.getElementById("sort-options")
+console.log("Sort options element:", sortOptions);
+
+sortOptions.addEventListener("change", (event) => {
+    console.log("Sort option changed to:", event.target.value);
+    const sortBy = event.target.value
+    console.log("Sorting by:", sortBy);
+    sortPlaylists(sortBy)
+    console.log("Playlists sorted, now rendering cards");
+    renderCards()
+})
+
+document.addEventListener('DOMContentLoaded', function() {
+    renderCards();
+});

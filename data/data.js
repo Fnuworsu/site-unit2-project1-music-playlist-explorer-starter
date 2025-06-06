@@ -5,6 +5,7 @@ let data = { "playlists": [
       "playlist_creator": "Black Sheriff",
       "playlist_art": "https://upload.wikimedia.org/wikipedia/en/5/53/The_Villain_I_Never_Was.jpg",
       "likeCount": 20,
+      "dateAdded": "2024-09-01",
       "songs": [
         {
           "songID": 0,
@@ -14,7 +15,7 @@ let data = { "playlists": [
           "cover_art": "https://thenativemag.com/wp-content/uploads/2022/10/Frame-316-min.jpg",
           "duration": "4:18"
         },
-        
+
         {
           "songID": 1,
           "title": "Believe",
@@ -55,6 +56,7 @@ let data = { "playlists": [
       "playlist_creator": "Groove Guardian",
       "playlist_art": "https://picsum.photos/id/117/200",
       "likeCount": 15,
+      "dateAdded": "2024-08-15",
       "songs": [
         {
           "songID": 5,
@@ -104,6 +106,7 @@ let data = { "playlists": [
       "playlist_creator": "Harmony Herald",
       "playlist_art": "https://picsum.photos/id/1077/200",
       "likeCount": 8,
+      "dateAdded": "2024-11-11",
       "songs": [
         {
           "songID": 10,
@@ -202,6 +205,7 @@ let data = { "playlists": [
       "playlist_creator": "Tempo Tactician",
       "playlist_art": "https://picsum.photos/id/449/200",
       "likeCount": 18,
+      "dateAdded": "2024-2-01",
       "songs": [
         {
           "songID": 20,
@@ -251,6 +255,7 @@ let data = { "playlists": [
       "playlist_creator": "Sonic Sage",
       "playlist_art": "https://picsum.photos/id/115/200",
       "likeCount": 10,
+      "dateAdded": "2024-12-01",
       "songs": [
         {
           "songID": 25,
@@ -300,6 +305,7 @@ let data = { "playlists": [
       "playlist_creator": "Vinyl Virtuoso",
       "playlist_art": "https://picsum.photos/id/815/200",
       "likeCount": 4,
+      "dateAdded": "2024-05-01",
       "songs": [
         {
           "songID": 30,
@@ -398,6 +404,7 @@ let data = { "playlists": [
       "playlist_creator": "Bassline Buddy",
       "playlist_art": "https://picsum.photos/id/836/200",
       "likeCount": 0,
+      "dateAdded": "2024-07-01",
       "songs": [
         {
           "songID": 40,

@@ -12,7 +12,15 @@
 <body>
     <header>
         <h1>Music Playlist Explorer</h1>
-        <nav style="padding-bottom: 14px; margin-bottom: 14px; text-decoration: hsl(0, 0, 0, 0);"><a href="../featured/featured.html"><h3>Featured Playlist</h3></a></nav>
+        <nav style="padding-bottom: 14px; margin-bottom: 14px; text-decoration: hsl(0, 0, 0, 0);">
+            <a href="../featured/featured.html"><h3>Featured Playlist</h3></a>
+            <select id="sort-options" style="border: 1px solid; border-radius: 10px; margin-left: 10px; background-color: 94e6f2">
+                <option></option>
+                <option value="name"> Sort by Name(A-Z)</option>
+                <option value="likes"> Sort by Likes(Descending)</option>
+                <option value="date"> Sort by Date Added(Newest First)</option>
+            </select>
+        </nav>
         <input type="text" id="search-space" placeholder="Search Playlist..." style="border: 1px solid;  border-radius: 10px">
         <!-- <i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i> -->
         <input type="submit" id="submit" style="border: 1px solid; background-color:rgb(112, 231, 239); border-radius: 10px">

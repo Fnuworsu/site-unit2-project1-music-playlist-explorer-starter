@@ -301,7 +301,7 @@ let data = { "playlists": [
     },
     {
       "playlistID": 6,
-      "playlist_name": "90's R&B",
+      "playlist_name": "R&B 90's",
       "playlist_creator": "Vinyl Virtuoso",
       "playlist_art": "https://picsum.photos/id/815/200",
       "likeCount": 4,

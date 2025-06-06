@@ -1,7 +1,15 @@
 const modal = document.getElementById("modal")
 const span = document.getElementById("close")
+const playlistFormModal = document.getElementById("playlist-form-modal")
+const closeFormBtn = document.getElementById("close-form")
+const addPlaylistBtn = document.getElementById("add-playlist-btn")
+const addSongBtn = document.getElementById("add-song-btn")
+const playlistForm = document.getElementById("playlist-form")
+const cancelPlaylistBtn = document.getElementById("cancel-playlist-btn")
 
 let playlistData = data.playlists
+let isEditMode = false
+let songCounter = 1 // Start at 1 because we already have song-0 in the HTML
 
 //  render songs
 const renderSongs = (playlistArray) => {
@@ -98,7 +106,6 @@ const renderCards = () => {
         likeIcon.id = `like-${playlist.playlistID}`;
 
         likeIcon.addEventListener('click', function(event) {
-            // Prevent triggering the playlist click event
             event.stopPropagation();
 
             if (this.classList.contains('fa-regular')) {
@@ -117,6 +124,18 @@ const renderCards = () => {
         });
 
         cardActionsDiv.appendChild(likeIcon);
+
+        // Edit button
+        const editIcon = document.createElement('i');
+        editIcon.className = 'fa-solid fa-pencil edit-btn';
+        editIcon.id = `edit-${playlist.playlistID}`;
+
+        editIcon.addEventListener('click', function(event) {
+            event.stopPropagation();
+            openEditPlaylistForm(playlist);
+        });
+
+        cardActionsDiv.appendChild(editIcon);
 
         // delete feature
         const deleteIcon = document.createElement('i');
@@ -142,7 +161,6 @@ const renderCards = () => {
             openModal(playlistData, playlistId);
         });
 
-        // Add the playlist card to the container
         cardContainer.appendChild(playlistDiv);
     });
 }
@@ -160,8 +178,11 @@ const shuffleSongs = (playlist) => {
 
 // search feature
 const searchBar = document.getElementById("search-space")
-searchBar.addEventListener("input", (e) => {
-    const searchTerm = e.target.value.toLowerCase()
+const submitButton = document.getElementById("submit")
+
+// Function to perform search
+const performSearch = () => {
+    const searchTerm = searchBar.value.toLowerCase()
     const allPlaylists = document.querySelectorAll(".playlist")
 
     allPlaylists.forEach(playlist => {
@@ -174,6 +195,18 @@ searchBar.addEventListener("input", (e) => {
             playlist.style.display = "none"
         }
     })
+}
+
+submitButton.addEventListener("click", (e) => {
+    e.preventDefault()
+    performSearch()
+})
+
+searchBar.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+        e.preventDefault()
+        performSearch()
+    }
 })
 
 // sort feature
@@ -189,17 +222,9 @@ const sortPlaylists = (sortBy) => {
 }
 
 const sortOptions = document.getElementById("sort-options")
-console.log("Sort options element:", sortOptions);
 
 sortOptions.addEventListener("change", (event) => {
-    console.log("Sort option changed to:", event.target.value);
     const sortBy = event.target.value
-    console.log("Sorting by:", sortBy);
     sortPlaylists(sortBy)
-    console.log("Playlists sorted, now rendering cards");
     renderCards()
 })
-
-document.addEventListener('DOMContentLoaded', function() {
-    renderCards();
-});

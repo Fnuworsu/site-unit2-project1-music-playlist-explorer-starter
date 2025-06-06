@@ -210,22 +210,3 @@ header, footer {
     text-decoration: none;
     cursor: pointer;
 }
-
-
-nav a {
-    text-decoration: none;
-    color: #333;
-    background-color: #94e6f2;
-    padding: 10px 20px;
-    border-radius: 8px;
-    display: inline-block;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-nav a:hover {
-    background-color: #7ad8e6;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-}

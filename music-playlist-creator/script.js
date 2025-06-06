@@ -30,7 +30,7 @@ const renderSongs = (playlistArray) => {
 }
 
 const openModal = (playlists, playlistId) => {
-    // Find the playlist by ID instead of using index
+    // Find the playlist by playlistId
     let playlist = playlists.find(p => p.playlistID === playlistId);
 
     document.getElementById("header-image").src = playlist.playlist_art
@@ -42,12 +42,11 @@ const openModal = (playlists, playlistId) => {
 
     let shuffleButton = document.getElementById("shuffle")
 
-    // Remove any existing event listeners by cloning and replacing the button
     const newShuffleButton = shuffleButton.cloneNode(true)
     shuffleButton.parentNode.replaceChild(newShuffleButton, shuffleButton)
     shuffleButton = newShuffleButton
 
-    // Add new event listener
+    // shuffle feature
     shuffleButton.addEventListener("click", () => {
         shuffleSongs(playlist)
     })
@@ -66,7 +65,6 @@ const renderCards = () => {
     playlistData.forEach(playlist => {
         let cardElement = cardTemplate.content.cloneNode(true)
 
-        // Set playlist data
         const coverImg = cardElement.querySelector('.playlist-cover')
         if (coverImg) {
             coverImg.src = playlist.playlist_art
@@ -75,30 +73,29 @@ const renderCards = () => {
         cardElement.querySelector('.playlist-title').innerText = playlist.playlist_name
         cardElement.querySelector('.playlist-creator').innerText = playlist.playlist_creator
         cardElement.querySelector('.like-count').innerText = playlist.likeCount
-        // Change the ID of the like icon to make it unique for each playlist
+
+        // uninque like-id per card rendered
         const likeIcon = cardElement.querySelector('#like');
         if (likeIcon) {
             likeIcon.id = `like-${playlist.playlistID}`;
 
-            // Add click event listener to handle liking a playlist
             likeIcon.addEventListener('click', function(event) {
                 // Prevent triggering the playlist click event
                 event.stopPropagation();
 
-                // Toggle heart icon between filled and outline
                 if (this.classList.contains('fa-regular')) {
                     this.classList.remove('fa-regular');
                     this.classList.add('fa-solid');
-                    this.classList.add('liked'); // Add class for red color
+                    this.classList.add('liked');
                     playlist.likeCount++;
                 } else {
                     this.classList.remove('fa-solid');
-                    this.classList.remove('liked'); // Remove class for red color
+                    this.classList.remove('liked');
                     this.classList.add('fa-regular');
                     playlist.likeCount--;
                 }
 
-                // Update the like count display
+                // update like count
                 const likeCountElement = this.parentElement.parentElement.querySelector('.like-count');
                 if (likeCountElement) {
                     likeCountElement.innerText = playlist.likeCount;
@@ -106,22 +103,19 @@ const renderCards = () => {
             });
         }
 
-        // Change the ID of the delete icon to make it unique for each playlist
+        // unique delete id per card rendered
         const deleteIcon = cardElement.querySelector('#delete');
         if (deleteIcon) {
             deleteIcon.id = `delete-${playlist.playlistID}`;
 
-            // Add click event listener to handle deleting a playlist
             deleteIcon.addEventListener('click', function(event) {
-                event.stopPropagation(); // Prevent triggering the playlist click event
+                event.stopPropagation();
 
-                // Remove the playlist from the data array
                 const index = playlistData.findIndex(p => p.playlistID === playlist.playlistID);
                 if (index !== -1) {
                     playlistData.splice(index, 1);
                 }
 
-                // Remove the playlist card from the DOM
                 const playlistCard = this.closest('.playlist');
                 if (playlistCard) {
                     playlistCard.remove();
@@ -129,7 +123,6 @@ const renderCards = () => {
             });
         }
 
-        // Add event listener to the playlist div
         const playlistDiv = cardElement.querySelector('.playlist')
         playlistDiv.dataset.playlistId = playlist.playlistID
 
@@ -154,6 +147,7 @@ const shuffleSongs = (playlist) => {
     renderSongs(playlist)
 }
 
+// search feature
 const searchBar = document.getElementById("search-space")
 searchBar.addEventListener("input", (e) => {
     const searchTerm = e.target.value.toLowerCase()

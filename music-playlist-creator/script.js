@@ -269,6 +269,15 @@ const openAddPlaylistForm = () => {
 
 addPlaylistBtn.addEventListener("click", openAddPlaylistForm);
 
+// close the modal(add playlist pop up form) when clicking outside of it
+window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+    if (event.target === playlistFormModal) {
+        playlistFormModal.style.display = "none";
+    }
+});
 
 document.addEventListener('DOMContentLoaded', function() {
     renderCards();

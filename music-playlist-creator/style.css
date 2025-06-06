@@ -342,3 +342,113 @@ nav a:hover {
     text-decoration: none;
 }
 
+
+
+#playlist-form-modal .modal-content {
+    max-width: 800px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #94e6f2;
+    box-shadow: 0 0 0 2px rgba(112, 231, 239, 0.3);
+}
+
+#songs-list {
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.song-input {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    position: relative;
+    border: 1px solid #eee;
+}
+
+#add-song-btn {
+    background-color: #94e6f2;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.2s;
+}
+
+#add-song-btn:hover {
+    background-color: #7ad8e6;
+}
+
+.remove-song-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #ff4d4d;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.remove-song-btn:hover {
+    transform: scale(1.2);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#save-playlist-btn, #cancel-playlist-btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+#save-playlist-btn {
+    background-color: #94e6f2;
+    border: none;
+}
+
+#save-playlist-btn:hover {
+    background-color: #7ad8e6;
+}
+
+#cancel-playlist-btn {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+}
+
+#cancel-playlist-btn:hover {
+    background-color: #eee;
+}
+

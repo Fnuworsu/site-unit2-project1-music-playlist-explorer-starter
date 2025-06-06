@@ -383,6 +383,67 @@ const addSongInput = () => {
 }
 addSongBtn.addEventListener("click", addSongInput)
 
+
+// save playlist after add/edit
+const savePlaylist = (event) => {
+    event.preventDefault()
+
+    const playlistId = document.getElementById("playlist-id").value
+    const playlistName = document.getElementById("playlist-name").value
+    const playlistAuthor = document.getElementById("playlist-author").value
+    const playlistCover = document.getElementById("playlist-cover").value
+
+    const songInputs = document.querySelectorAll(".song-input")
+    const songs = []
+
+    songInputs.forEach((songInput, index) => {
+        const songName = songInput.querySelector(".song-name").value
+        const songArtist = songInput.querySelector(".song-artist").value
+        const songAlbum = songInput.querySelector(".song-album").value
+        const songCover = songInput.querySelector(".song-cover").value
+        const songDuration = songInput.querySelector(".song-duration").value
+
+        songs.push({
+            songID: isEditMode ? (playlistData.find(p => p.playlistID == playlistId)?.songs[index]?.songID || Date.now() + index) : Date.now() + index,
+            title: songName,
+            artist: songArtist,
+            album: songAlbum,
+            cover_art: songCover,
+            duration: songDuration
+        })
+    })
+
+    if (isEditMode) {
+        const playlistIndex = playlistData.findIndex(p => p.playlistID == playlistId)
+        if (playlistIndex !== -1) {
+            playlistData[playlistIndex].playlist_name = playlistName
+            playlistData[playlistIndex].playlist_creator = playlistAuthor
+            playlistData[playlistIndex].playlist_art = playlistCover
+            playlistData[playlistIndex].songs = songs
+        }
+    } else {
+        const newPlaylist = {
+            playlistID: playlistData.length > 0 ? Math.max(...playlistData.map(p => p.playlistID)) + 1 : 0,
+            playlist_name: playlistName,
+            playlist_creator: playlistAuthor,
+            playlist_art: playlistCover,
+            likeCount: 0,
+            dateAdded: new Date().toISOString().split('T')[0],
+            songs: songs
+        }
+
+        playlistData.push(newPlaylist)
+    }
+
+    // close the modal and re-render cards
+    playlistFormModal.style.display = "none"
+    renderCards()
+}
+
+closeFormBtn.addEventListener("click", () => playlistFormModal.style.display = "none")
+playlistForm.addEventListener("submit", savePlaylist)
+cancelPlaylistBtn.addEventListener("click", () => playlistFormModal.style.display = "none")
+
 document.addEventListener('DOMContentLoaded', function() {
     renderCards()
 })

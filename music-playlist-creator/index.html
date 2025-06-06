@@ -11,19 +11,19 @@
 </head>
 <body>
     <header>
-        <h1>Music Playlist Explorer</h1>
+        <h1><tt>Music Playlist Explorer</tt></h1>
         <nav style="padding-bottom: 14px; margin-bottom: 14px; text-decoration: hsl(0, 0, 0, 0);">
-            <a style="background-color: rgb(112, 231, 239)" href="featured.html"><h3>Featured Playlist</h3></a>
+            <a style="background-color: rgb(112, 231, 239)" href="featured.html"><h3><tt>Featured Playlist</tt></h3></a>
             <select id="sort-options" style="border: 1px solid; border-radius: 10px; margin-left: 10px; background-color: 94e6f2">
-                <option></option>
-                <option value="name"> Sort by Name(A-Z)</option>
-                <option value="likes"> Sort by Likes(Descending)</option>
-                <option value="date"> Sort by Date Added(Newest First)</option>
+                <option><tt><b>Sort by</b></tt></option>
+                <option value="name"><tt>Name(A-Z)</tt></option>
+                <option value="likes"><tt>Likes(Descending)</tt></option>
+                <option value="date"><tt>Date Added(Newest First)</tt></option>
             </select>
-            <button id="add-playlist-btn" style="border: 1px solid; background-color:rgb(112, 231, 239); border-radius: 10px; margin-left: 10px; padding: 5px 10px; cursor: pointer;">Add New Playlist</button>
+            <button id="add-playlist-btn" style="border: 1px solid; background-color:rgb(112, 231, 239); border-radius: 10px; margin-left: 10px; padding: 5px 10px; cursor: pointer; font-style: oblique;">Add New Playlist</button>
         </nav>
-        <input type="text" id="search-space" placeholder="Search Playlist..." style="border: 1px solid;  border-radius: 10px">
-        <input type="submit" id="submit" style="border: 1px solid; background-color:rgb(112, 231, 239); border-radius: 10px">
+        <input type="text" id="search-space" placeholder="Search Playlist..." style="border: 1px solid;  border-radius: 10px; font-style:italic">
+        <input type="submit" id="submit" style="border: 1px solid; background-color:rgb(112, 231, 239); border-radius: 10px; font-style:oblique;">
     </header>
 
     <main>

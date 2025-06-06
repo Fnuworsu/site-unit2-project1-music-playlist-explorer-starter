@@ -107,7 +107,7 @@ nav a:hover {
 
 .playlist {
     border: 2px solid #94e6f2;
-    border-radius: 10px;
+    border-radius: 20px;
     text-align: center;
     position: relative;
     transition: all 0.3s ease;
@@ -342,8 +342,6 @@ nav a:hover {
     text-decoration: none;
 }
 
-
-
 #playlist-form-modal .modal-content {
     max-width: 800px;
 }
@@ -452,3 +450,61 @@ nav a:hover {
     background-color: #eee;
 }
 
+@media (max-width: 768px) {
+    .playlist-cards {
+        gap: 15px;
+    }
+
+    .playlist {
+        width: 200px;
+    }
+
+    .playlist img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 15px;
+    }
+
+    #search-space {
+        width: 150px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #sort-options, #add-playlist-btn {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .playlist {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .playlist img {
+        width: 100%;
+        height: auto;
+    }
+
+    .song {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .song .modal-text {
+        margin: 10px 0;
+    }
+
+    .song-duration {
+        align-self: flex-end;
+    }
+}

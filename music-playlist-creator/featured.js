@@ -45,7 +45,8 @@ const randomPlaylistCard = () => {
         playlistData[randIdx] = temp
     }
 
-    renderRandomCard(0)
+    let randIdx = Math.floor(Math.random() * playlistData.length - 1)
+    renderRandomCard(randIdx)
 }
 
 randomPlaylistCard()

@@ -79,91 +79,91 @@ const renderCards = () => {
         playlistDiv.className = 'playlist'
         playlistDiv.dataset.playlistId = playlist.playlistID
 
-        const coverImg = document.createElement('img');
-        coverImg.className = 'playlist-cover';
-        coverImg.src = playlist.playlist_art;
-        playlistDiv.appendChild(coverImg);
+        const coverImg = document.createElement('img')
+        coverImg.className = 'playlist-cover'
+        coverImg.src = playlist.playlist_art
+        playlistDiv.appendChild(coverImg)
 
-        const titleElement = document.createElement('h3');
-        titleElement.className = 'playlist-title';
-        titleElement.innerText = playlist.playlist_name;
-        playlistDiv.appendChild(titleElement);
+        const titleElement = document.createElement('h3')
+        titleElement.className = 'playlist-title'
+        titleElement.innerText = playlist.playlist_name
+        playlistDiv.appendChild(titleElement)
 
-        const creatorElement = document.createElement('p');
-        creatorElement.className = 'playlist-creator';
-        creatorElement.innerText = playlist.playlist_creator;
-        playlistDiv.appendChild(creatorElement);
+        const creatorElement = document.createElement('p')
+        creatorElement.className = 'playlist-creator'
+        creatorElement.innerText = playlist.playlist_creator
+        playlistDiv.appendChild(creatorElement)
 
-        const likeCountElement = document.createElement('p');
-        likeCountElement.className = 'like-count';
-        likeCountElement.innerText = playlist.likeCount;
-        playlistDiv.appendChild(likeCountElement);
+        const likeCountElement = document.createElement('p')
+        likeCountElement.className = 'like-count'
+        likeCountElement.innerText = playlist.likeCount
+        playlistDiv.appendChild(likeCountElement)
 
-        const cardActionsDiv = document.createElement('div');
-        cardActionsDiv.className = 'card-actions';
+        const cardActionsDiv = document.createElement('div')
+        cardActionsDiv.className = 'card-actions'
 
-        const likeIcon = document.createElement('i');
-        likeIcon.className = 'fa-regular fa-heart';
-        likeIcon.id = `like-${playlist.playlistID}`;
+        const likeIcon = document.createElement('i')
+        likeIcon.className = 'fa-regular fa-heart'
+        likeIcon.id = `like-${playlist.playlistID}`
 
         likeIcon.addEventListener('click', function(event) {
-            event.stopPropagation();
+            event.stopPropagation()
 
             if (this.classList.contains('fa-regular')) {
-                this.classList.remove('fa-regular');
-                this.classList.add('fa-solid');
-                this.classList.add('liked');
-                playlist.likeCount++;
+                this.classList.remove('fa-regular')
+                this.classList.add('fa-solid')
+                this.classList.add('liked')
+                playlist.likeCount++
             } else {
-                this.classList.remove('fa-solid');
-                this.classList.remove('liked');
-                this.classList.add('fa-regular');
-                playlist.likeCount--;
+                this.classList.remove('fa-solid')
+                this.classList.remove('liked')
+                this.classList.add('fa-regular')
+                playlist.likeCount--
             }
 
-            likeCountElement.innerText = playlist.likeCount;
-        });
+            likeCountElement.innerText = playlist.likeCount
+        })
 
-        cardActionsDiv.appendChild(likeIcon);
+        cardActionsDiv.appendChild(likeIcon)
 
         // Edit button
-        const editIcon = document.createElement('i');
-        editIcon.className = 'fa-solid fa-pencil edit-btn';
-        editIcon.id = `edit-${playlist.playlistID}`;
+        const editIcon = document.createElement('i')
+        editIcon.className = 'fa-solid fa-pencil edit-btn'
+        editIcon.id = `edit-${playlist.playlistID}`
 
         editIcon.addEventListener('click', function(event) {
-            event.stopPropagation();
-            openEditPlaylistForm(playlist);
-        });
+            event.stopPropagation()
+            openEditPlaylistForm(playlist)
+        })
 
-        cardActionsDiv.appendChild(editIcon);
+        cardActionsDiv.appendChild(editIcon)
 
         // delete feature
-        const deleteIcon = document.createElement('i');
-        deleteIcon.className = 'fa-solid fa-trash-can';
-        deleteIcon.id = `delete-${playlist.playlistID}`;
+        const deleteIcon = document.createElement('i')
+        deleteIcon.className = 'fa-solid fa-trash-can'
+        deleteIcon.id = `delete-${playlist.playlistID}`
 
         deleteIcon.addEventListener('click', function(event) {
-            event.stopPropagation();
+            event.stopPropagation()
 
-            const index = playlistData.findIndex(p => p.playlistID === playlist.playlistID);
+            const index = playlistData.findIndex(p => p.playlistID === playlist.playlistID)
             if (index !== -1) {
-                playlistData.splice(index, 1);
+                playlistData.splice(index, 1)
             }
 
-            playlistDiv.remove();
-        });
+            playlistDiv.remove()
+        })
 
-        cardActionsDiv.appendChild(deleteIcon);
-        playlistDiv.appendChild(cardActionsDiv);
+        cardActionsDiv.appendChild(deleteIcon)
+        playlistDiv.appendChild(cardActionsDiv)
 
         playlistDiv.addEventListener("click", function() {
-            const playlistId = parseInt(this.dataset.playlistId);
-            openModal(playlistData, playlistId);
-        });
+            const playlistId = parseInt(this.dataset.playlistId)
+            openModal(playlistData, playlistId)
+        })
 
-        cardContainer.appendChild(playlistDiv);
-    });
+        cardContainer.appendChild(playlistDiv)
+    })
 }
 
 // shuffle songs
@@ -215,10 +215,10 @@ const sortPlaylists = (sortBy) => {
     if (sortBy == "name") playlistData.sort((a,b) => a.playlist_name.localeCompare(b.playlist_name))
     else if (sortBy == "likes") playlistData.sort((a,b) => b.likeCount - a.likeCount)
     else playlistData.sort((a,b) => {
-        if (!a.dateAdded && !b.dateAdded) return 0;
-        if (!a.dateAdded) return 1;
-        if (!b.dateAdded) return -1;
-        return new Date(b.dateAdded) - new Date(a.dateAdded);
+        if (!a.dateAdded && !b.dateAdded) return 0
+        if (!a.dateAdded) return 1
+        if (!b.dateAdded) return -1
+        return new Date(b.dateAdded) - new Date(a.dateAdded)
     })
 }
 
@@ -232,12 +232,12 @@ sortOptions.addEventListener("change", (event) => {
 
 // add/edit Playlist Feature
 const openAddPlaylistForm = () => {
-    isEditMode = false;
-    document.getElementById("form-title").innerText = "Add New Playlist";
-    document.getElementById("playlist-id").value = "";
-    playlistForm.reset();
+    isEditMode = false
+    document.getElementById("form-title").innerText = "Add New Playlist"
+    document.getElementById("playlist-id").value = ""
+    playlistForm.reset()
 
-    const songsList = document.getElementById("songs-list");
+    const songsList = document.getElementById("songs-list")
     songsList.innerHTML = `
         <div class="song-input">
             <div class="form-group">
@@ -261,24 +261,128 @@ const openAddPlaylistForm = () => {
                 <input type="text" class="song-duration" id="song-duration-0" placeholder="e.g. 3:45" required>
             </div>
         </div>
-    `;
-    songCounter = 1;
+    `
+    songCounter = 1
 
-    playlistFormModal.style.display = "block";
+    playlistFormModal.style.display = "block"
 }
 
-addPlaylistBtn.addEventListener("click", openAddPlaylistForm);
+addPlaylistBtn.addEventListener("click", openAddPlaylistForm)
 
 // close the modal(add playlist pop up form) when clicking outside of it
 window.addEventListener("click", (event) => {
     if (event.target === modal) {
-        modal.style.display = "none";
+        modal.style.display = "none"
     }
     if (event.target === playlistFormModal) {
-        playlistFormModal.style.display = "none";
+        playlistFormModal.style.display = "none"
     }
-});
+})
+
+// open form modal for editing an existing playlist
+const openEditPlaylistForm = (playlist) => {
+    isEditMode = true
+    document.getElementById("form-title").innerText = "Edit Playlist"
+    document.getElementById("playlist-id").value = playlist.playlistID
+
+    document.getElementById("playlist-name").value = playlist.playlist_name
+    document.getElementById("playlist-author").value = playlist.playlist_creator
+    document.getElementById("playlist-cover").value = playlist.playlist_art
+
+    // reset songs list
+    const songsList = document.getElementById("songs-list")
+    songsList.innerHTML = ''
+
+    playlist.songs.forEach((song, index) => {
+        const songInput = document.createElement('div')
+        songInput.className = 'song-input'
+        songInput.innerHTML = `
+            <div class="form-group">
+                <label for="song-name-${index}">Song Name:</label>
+                <input type="text" class="song-name" id="song-name-${index}" value="${song.title}" required>
+            </div>
+            <div class="form-group">
+                <label for="song-artist-${index}">Artist:</label>
+                <input type="text" class="song-artist" id="song-artist-${index}" value="${song.artist}" required>
+            </div>
+            <div class="form-group">
+                <label for="song-album-${index}">Album:</label>
+                <input type="text" class="song-album" id="song-album-${index}" value="${song.album}" required>
+            </div>
+            <div class="form-group">
+                <label for="song-cover-${index}">Cover URL:</label>
+                <input type="text" class="song-cover" id="song-cover-${index}" value="${song.cover_art}" required>
+            </div>
+            <div class="form-group">
+                <label for="song-duration-${index}">Duration:</label>
+                <input type="text" class="song-duration" id="song-duration-${index}" value="${song.duration}" required>
+            </div>
+        `
+
+        // add remove button for all except the first song
+        if (index > 0) {
+            const removeBtn = document.createElement('button')
+            removeBtn.type = 'button'
+            removeBtn.className = 'remove-song-btn'
+            removeBtn.innerHTML = '&times'
+            removeBtn.addEventListener('click', function() {
+                this.parentElement.remove()
+            })
+            songInput.appendChild(removeBtn)
+        }
+
+        songsList.appendChild(songInput)
+    })
+
+    songCounter = playlist.songs.length
+
+    playlistFormModal.style.display = "block"
+}
+
+// add a new song to the form
+const addSongInput = () => {
+    const songsList = document.getElementById("songs-list")
+    const songInput = document.createElement('div')
+    songInput.className = 'song-input'
+
+    songInput.innerHTML = `
+        <div class="form-group">
+            <label for="song-name-${songCounter}">Song Name:</label>
+            <input type="text" class="song-name" id="song-name-${songCounter}" required>
+        </div>
+        <div class="form-group">
+            <label for="song-artist-${songCounter}">Artist:</label>
+            <input type="text" class="song-artist" id="song-artist-${songCounter}" required>
+        </div>
+        <div class="form-group">
+            <label for="song-album-${songCounter}">Album:</label>
+            <input type="text" class="song-album" id="song-album-${songCounter}" required>
+        </div>
+        <div class="form-group">
+            <label for="song-cover-${songCounter}">Cover URL:</label>
+            <input type="text" class="song-cover" id="song-cover-${songCounter}" required>
+        </div>
+        <div class="form-group">
+            <label for="song-duration-${songCounter}">Duration:</label>
+            <input type="text" class="song-duration" id="song-duration-${songCounter}" placeholder="e.g. 3:45" required>
+        </div>
+    `
+
+    const removeBtn = document.createElement('button')
+    removeBtn.type = 'button'
+    removeBtn.className = 'remove-song-btn'
+    removeBtn.innerHTML = '&times'
+    removeBtn.addEventListener('click', function() {
+        this.parentElement.remove()
+    })
+
+    songInput.appendChild(removeBtn)
+    songsList.appendChild(songInput)
+
+    songCounter++
+}
+addSongBtn.addEventListener("click", addSongInput)
 
 document.addEventListener('DOMContentLoaded', function() {
-    renderCards();
-});
+    renderCards()
+})

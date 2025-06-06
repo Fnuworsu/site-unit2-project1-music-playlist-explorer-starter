@@ -9,9 +9,10 @@ const cancelPlaylistBtn = document.getElementById("cancel-playlist-btn")
 
 let playlistData = data.playlists
 let isEditMode = false
-let songCounter = 1 // Start at 1 because we already have song-0 in the HTML
+// start at 1 because we already have song-0 in the html
+let songCounter = 1
 
-//  render songs
+// render songs
 const renderSongs = (playlistArray) => {
     let songElement = document.querySelector('.songs-container')
     songElement.innerHTML = ``
@@ -228,3 +229,8 @@ sortOptions.addEventListener("change", (event) => {
     sortPlaylists(sortBy)
     renderCards()
 })
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    renderCards();
+});

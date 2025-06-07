@@ -48,14 +48,14 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
     - [x] If previously liked:
       - [x] The like count on the playlist tile should decrease by 1.
       - [x] There should be visual feedback (such as the heart turning a different color) to show that the playlist has been unliked by the user.
-    - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** In addition to showcasing the above features, for ease of grading, please film yourself liking and unliking:
+    - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** In addition to showcasing the above features, for ease of grading, please film yourself liking and unliking:
       - [x] a playlist with a like count of 0
       - [x] a playlist with a non-zero like count
 
 - [x] **Shuffle Songs**
   - [x] Enable users to shuffle the songs within a playlist using a shuffle button in the playlist's detail modal.
   - [x] When the shuffle button is clicked, the playlist's songs should display in a different order.
-  - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** In addition to showcasing the above features, for ease of grading, please show yourself shuffling the same playlist more than once.
+  - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** In addition to showcasing the above features, for ease of grading, please show yourself shuffling the same playlist more than once.
 
 - [x] **Featured Page**
   - [x] Application includes a dedicated page that randomly selects and displays a playlist, showing the playlist’s:
@@ -68,7 +68,7 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
   - [x] When the page is refreshed or reloaded, a new random playlist is displayed
     - For example, navigating to the all playlists page and then back to the featured playlist page should result in a new random playlist being displayed
     - Note that because your algorithm will not be truly random, it is possible that the same playlist will feature twice in a row.
-    - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** In addition to showcasing the above features, for ease of grading, please show yourself refreshing the featured page more than once.
+    - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** In addition to showcasing the above features, for ease of grading, please show yourself refreshing the featured page more than once.
   - [x] Application includes a navigation bar or some other mechanism such that users can navigate to the page with all playlists from the featured page and vice versa without using the browser's back and forward buttons.
 
 #### STRETCH FEATURES
@@ -93,7 +93,7 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
     - [x] Author
     - [x] Songs
   - [x] The playlist grid view and playlist detail modal should update to display any changes (see Required Features, Criterion 1 & 2).
-  - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** For ease of grading, please show yourself:
+  - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** For ease of grading, please show yourself:
     - [x] Editing all of a playlist's features (name, creator, AND songs)
     - [x] Editing some of a playlist's features (name, creator, OR songs)
 
@@ -115,7 +115,7 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
   - [x] User can click the clear button. When clicked:
     - [x] All text in the text input field is deleted
     - [x] All playlists in the `data.json` file are displayed in a grid view
-    - [ ] **Optional:** If the Add Playlist, Edit Existing Playlist, or Delete Playlist stretch features were implemented:
+    - [x] **Optional:** If the Add Playlist, Edit Existing Playlist, or Delete Playlist stretch features were implemented:
       - [x] If users can add a playlist, added playlists should be included in search results.
       - [x] If users can edit a playlist, search results should reflect the latest edits to each playlist.
       - [x] If users can delete a playlist, deleted playlists should no longer be included in search results.
@@ -144,7 +144,7 @@ If I had more time, I would have styled the website to be more visually appealin
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+Writing code in HTML and DOM manipulation and everything JavaScript went really well for me. The only thing that didn't go as planned was the my styling. I tried to make it look as close to the mockup as possible but I couldn't get it to look exactly like.
 
 ### Open-source libraries used
 
@@ -152,4 +152,4 @@ Add your response here
 
 ### Shout out
 
-- Elikem
+- Shout out to Elikem and Danny

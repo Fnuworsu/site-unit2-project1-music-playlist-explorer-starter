@@ -37,7 +37,7 @@ let data = { "playlists": [
           "title": "Night Moves",
           "artist": "Bob Seger",
           "album": "Night Moves",
-          "cover_art": "https://picsum.photos/id/84/200",
+          "cover_art": "https://upload.wikimedia.org/wikipedia/en/f/f8/X_Ken_Carson.jpeg",
           "duration": "5:25"
         },
         {
@@ -45,16 +45,16 @@ let data = { "playlists": [
           "title": "Moonlight Drive",
           "artist": "The Doors",
           "album": "Strange Days",
-          "cover_art": "https://picsum.photos/id/122/200",
+          "cover_art": "https://upload.wikimedia.org/wikipedia/en/f/f5/Ken_Carson_-_A_Great_Chaos.jpg",
           "duration": "3:04"
         }
       ]
     },
     {
       "playlistID": 1,
-      "playlist_name": "That Summer '16 Feeling",
+      "playlist_name": "That Summer '25",
       "playlist_creator": "Groove Guardian",
-      "playlist_art": "https://picsum.photos/id/117/200",
+      "playlist_art": "https://upload.wikimedia.org/wikipedia/en/0/0e/Lil_Yachty_Nuthin%27_2_Prove.png",
       "likeCount": 15,
       "dateAdded": "2024-08-15",
       "songs": [
@@ -71,7 +71,7 @@ let data = { "playlists": [
           "title": "Cheap Thrills",
           "artist": "Sia",
           "album": "This Is Acting",
-          "cover_art": "https://picsum.photos/id/56/200",
+          "cover_art": "https://upload.wikimedia.org/wikipedia/en/e/e1/Lil_Yachty_-_Lil_Boat_3.png",
           "duration": "3:31"
         },
         {
@@ -102,9 +102,9 @@ let data = { "playlists": [
     },
     {
       "playlistID": 2,
-      "playlist_name": "Workout Beats",
+      "playlist_name": "Best of Lil Yachty",
       "playlist_creator": "Harmony Herald",
-      "playlist_art": "https://picsum.photos/id/1077/200",
+      "playlist_art": "https://upload.wikimedia.org/wikipedia/en/e/e1/Lil_Yachty_-_Lil_Boat_3.png",
       "likeCount": 8,
       "dateAdded": "2024-11-11",
       "songs": [
@@ -152,9 +152,9 @@ let data = { "playlists": [
     },
     {
       "playlistID": 3,
-      "playlist_name": "Road Trip Anthems",
+      "playlist_name": "Trip Down Highway 61",
       "playlist_creator": "Playlist Pioneer",
-      "playlist_art": "https://picsum.photos/id/314/200",
+      "playlist_art": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Let%27s_Start_Here.jpg/500px-Let%27s_Start_Here.jpg",
       "likeCount": 17,
       "songs": [
         {
@@ -201,9 +201,9 @@ let data = { "playlists": [
     },
     {
       "playlistID": 4,
-      "playlist_name": "Boss Chick Energy",
+      "playlist_name": "Blonded",
       "playlist_creator": "Tempo Tactician",
-      "playlist_art": "https://picsum.photos/id/449/200",
+      "playlist_art": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Frank_Ocean_2022_Blonded.jpg/500px-Frank_Ocean_2022_Blonded.jpg",
       "likeCount": 18,
       "dateAdded": "2024-2-01",
       "songs": [
@@ -251,9 +251,9 @@ let data = { "playlists": [
     },
     {
       "playlistID": 5,
-      "playlist_name": "Rainy Nights",
+      "playlist_name": "Saint Chroma",
       "playlist_creator": "Sonic Sage",
-      "playlist_art": "https://picsum.photos/id/115/200",
+      "playlist_art": "https://upload.wikimedia.org/wikipedia/en/5/5b/Chromakopia_CD_cover.jpg",
       "likeCount": 10,
       "dateAdded": "2024-12-01",
       "songs": [
@@ -301,9 +301,9 @@ let data = { "playlists": [
     },
     {
       "playlistID": 6,
-      "playlist_name": "R&B 90's",
+      "playlist_name": "GNX",
       "playlist_creator": "Vinyl Virtuoso",
-      "playlist_art": "https://picsum.photos/id/815/200",
+      "playlist_art": "https://upload.wikimedia.org/wikipedia/en/9/93/Kendrick_Lamar_-_GNX.png",
       "likeCount": 4,
       "dateAdded": "2024-05-01",
       "songs": [
@@ -351,9 +351,9 @@ let data = { "playlists": [
     },
     {
       "playlistID": 7,
-      "playlist_name": "Nothing But The Classics",
+      "playlist_name": "Goodbye Horses",
       "playlist_creator": "Echo Enthusiast",
-      "playlist_art": "https://picsum.photos/id/22/200",
+      "playlist_art": "https://upload.wikimedia.org/wikipedia/en/7/7c/Goodbye_Horses_%28album%29.jpg",
       "likeCount": 0,
       "songs": [
         {
@@ -400,9 +400,9 @@ let data = { "playlists": [
     },
     {
       "playlistID": 8,
-      "playlist_name": "Ohh That Baseline",
+      "playlist_name": "Great Chaos",
       "playlist_creator": "Bassline Buddy",
-      "playlist_art": "https://picsum.photos/id/836/200",
+      "playlist_art": "https://upload.wikimedia.org/wikipedia/en/f/f5/Ken_Carson_-_A_Great_Chaos.jpg",
       "likeCount": 0,
       "dateAdded": "2024-07-01",
       "songs": [
